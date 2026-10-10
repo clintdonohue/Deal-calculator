@@ -12,22 +12,22 @@
 <meta name="apple-mobile-web-app-title" content="Deal Calc">
 <meta name="application-name" content="Deal Calc">
 <meta name="format-detection" content="telephone=no">
-<meta name="description" content="Contract deal calculator: total dollars a staffing deal makes after pay and burden.">
+<meta name="description" content="Total dollars a contract deal makes.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e7c66'/%3E%3Crect x='13' y='34' width='10' height='15' rx='2.5' fill='white'/%3E%3Crect x='27' y='24' width='10' height='25' rx='2.5' fill='white'/%3E%3Crect x='41' y='13' width='10' height='36' rx='2.5' fill='white'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="data:image/png;base64,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">
 <title>Deal Calculator</title>
 <style>
 :root{
   --bg:#f4f6f8; --card:#ffffff; --ink:#15212b; --sub:#5f6e7b; --faint:#8b98a4;
-  --line:#e2e8ed; --field:#f7f9fa; --track:#edf1f4;
-  --accent:#0e7c66; --accent-ink:#ffffff; --accent-soft:rgba(14,124,102,.10); --accent-ring:rgba(14,124,102,.22);
+  --line:#e2e8ed; --field:#f7f9fa;
+  --accent:#0e7c66; --accent-ink:#ffffff; --accent-ring:rgba(14,124,102,.22);
   --shadow:0 1px 2px rgba(16,32,44,.04),0 6px 18px rgba(16,32,44,.05);
 }
 @media (prefers-color-scheme:dark){
   :root{
     --bg:#0d1418; --card:#151f25; --ink:#e8eef2; --sub:#9aa8b3; --faint:#71808c;
-    --line:#24323b; --field:#1b272e; --track:#22313a;
-    --accent:#3fcf9f; --accent-ink:#06261d; --accent-soft:rgba(63,207,159,.12); --accent-ring:rgba(63,207,159,.28);
+    --line:#24323b; --field:#1b272e;
+    --accent:#3fcf9f; --accent-ink:#06261d; --accent-ring:rgba(63,207,159,.28);
     --shadow:none;
   }
 }
@@ -39,83 +39,39 @@ button{cursor:pointer;touch-action:manipulation}
 input{touch-action:manipulation}
 .app{width:100%;max-width:480px;margin:0 auto;padding:calc(14px + env(safe-area-inset-top)) 16px calc(28px + env(safe-area-inset-bottom))}
 .top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
-.eyebrow{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--faint)}
-h1{margin:3px 0 0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
+h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
 .actions{display:flex;gap:8px;flex:none}
 .btn{min-height:44px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-size:14px;font-weight:650;display:inline-flex;align-items:center;gap:6px}
 .btn:active{transform:scale(.97)}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .btn svg{width:16px;height:16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow);margin-bottom:12px}
-.card-title{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin:0 0 12px;font-size:13px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.06em}
-.card-title small{font-size:12px;font-weight:550;text-transform:none;letter-spacing:0;color:var(--faint)}
-/* hero */
+.card-title{margin:0 0 12px;font-size:13px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.06em}
 .hero{padding:18px 18px 16px}
 .hero-label{font-size:15px;font-weight:700;color:var(--ink)}
-.hero-sub{font-size:13px;color:var(--sub);margin-top:2px}
-.money-wrap{display:flex;align-items:baseline;margin-top:8px;color:var(--accent);border-bottom:2px solid transparent;transition:border-color .15s}
-.money-wrap:focus-within{border-bottom-color:var(--accent-ring)}
-.money-wrap .cur{font-size:34px;font-weight:750;line-height:1;margin-right:2px}
-#total{flex:1;min-width:0;width:100%;border:0;outline:0;background:transparent;padding:0;color:var(--accent);font-size:56px;line-height:1.1;font-weight:800;letter-spacing:-2px;font-variant-numeric:tabular-nums}
+.money{display:flex;align-items:baseline;margin-top:8px;color:var(--accent);font-weight:800;font-variant-numeric:tabular-nums;line-height:1.1;white-space:nowrap;overflow:hidden}
+.money .cur{font-size:34px;font-weight:750;margin-right:2px}
+#total{font-size:56px;letter-spacing:-2px}
 .hero-meta{margin-top:8px;font-size:14px;color:var(--sub)}
 .hero-meta b{color:var(--ink);font-weight:650}
-/* fields */
 .fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
 .field{display:block;min-width:0;background:var(--field);border:1px solid var(--line);border-radius:13px;padding:10px 12px;min-height:64px;cursor:text;transition:border-color .15s,box-shadow .15s}
 .field:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-ring)}
-.field.ro{background:transparent;border-style:dashed;cursor:default}
 .field .lbl{display:block;font-size:12px;font-weight:650;color:var(--sub);margin-bottom:4px}
 .entry{display:flex;align-items:baseline;gap:3px;min-width:0}
 .entry .pre,.entry .suf{flex:none;color:var(--faint);font-weight:600}
 .entry .pre{font-size:18px}
 .entry .suf{font-size:13px}
 .entry input{flex:1;min-width:0;width:100%;border:0;outline:0;background:transparent;padding:0;font-size:22px;font-weight:700;letter-spacing:-.3px;font-variant-numeric:tabular-nums;line-height:1.2}
-/* chips */
-.chips{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
-.chip{position:relative;min-height:56px;padding:6px 2px;border-radius:12px;border:1px solid var(--line);background:var(--field);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;line-height:1.15}
-.chip .c1{font-size:15px;font-weight:700}
-.chip .c2{font-size:11px;color:var(--sub);font-variant-numeric:tabular-nums}
-.chip.std{border:1.5px solid var(--accent)}
-.chip.std .c1{color:var(--accent)}
-.chip .tag{position:absolute;top:-8px;left:50%;transform:translateX(-50%);font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);padding:2px 6px;border-radius:999px;white-space:nowrap}
-.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.chip[aria-pressed="true"] .c1,.chip[aria-pressed="true"] .c2{color:var(--accent-ink)}
-.chip[aria-pressed="true"] .tag{background:var(--accent-ink);color:var(--accent)}
-.hours-row{margin-top:10px}
-.chips-wrap{padding-top:6px}
-/* compare */
-.bars{display:grid;gap:9px}
-.bar-row{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:10px;font-size:14px}
-.bar-row .bl{font-weight:650;color:var(--sub)}
-.bar-row .bv{font-weight:700;font-variant-numeric:tabular-nums;text-align:right;min-width:78px}
-.track{display:block;height:14px;border-radius:999px;background:var(--track);overflow:hidden}
-.fill{display:block;height:100%;width:0;border-radius:999px;background:var(--accent);opacity:.45;transition:width .25s ease}
-.bar-row.cur .fill{opacity:1}
-.bar-row.cur .bl,.bar-row.cur .bv{color:var(--ink)}
-.bar-row.std .bl{color:var(--accent)}
-.compare-note{margin:12px 0 0;font-size:13px;color:var(--sub)}
-.compare-note b{color:var(--ink)}
-/* stats */
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.tile{min-width:0;background:var(--field);border:1px solid var(--line);border-radius:12px;padding:9px 10px;min-height:62px;display:block}
-.tile .lbl{display:block;font-size:11px;font-weight:650;color:var(--sub);margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tile .val{display:block;font-size:17px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tile.edit{cursor:text}
-.tile.edit:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-ring)}
-.tile.edit .entry input{font-size:17px}
-.tile.edit .entry .pre{font-size:15px}
-.tile.edit .entry .suf{font-size:13px}
-.tile.edit .entry{border-bottom:1px dashed var(--faint);padding-bottom:1px}
-.foot{text-align:center;font-size:12px;line-height:1.5;color:var(--faint);margin:14px auto 0;max-width:330px}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;padding:10px 16px;border-radius:999px;transition:opacity .2s,transform .2s;max-width:calc(100% - 32px)}
 .toast.show{opacity:1;transform:translate(-50%,0)}
-@media (max-width:359px){.app{padding-left:10px;padding-right:10px}.card{padding:13px}.chip .c1{font-size:13px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.btn{padding:0 11px}}
+@media (max-width:359px){.app{padding-left:10px;padding-right:10px}.card{padding:13px}.btn{padding:0 11px}}
 </style>
 </head>
 <body>
 <main class="app">
   <header class="top">
-    <div><div class="eyebrow">Contract pricing</div><h1>Deal Calculator</h1></div>
+    <h1>Deal Calculator</h1>
     <div class="actions">
       <button class="btn" type="button" id="reset" aria-label="Reset to example deal">Reset</button>
       <button class="btn primary" type="button" id="share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>Share</button>
@@ -124,56 +80,19 @@ h1{margin:3px 0 0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weigh
 
   <section class="card hero" aria-label="Total deal spread">
     <div class="hero-label">Total deal spread</div>
-    <div class="hero-sub">after pay and burden, before overhead</div>
-    <label class="money-wrap"><span class="cur" aria-hidden="true">$</span><input id="total" data-k="total" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" aria-label="Total deal spread in dollars. Edit to solve for bill rate."></label>
-    <div class="hero-meta"><b id="mLen">6 months</b> · <span id="mHours">1,040 hrs</span> × <b id="mSpread">$11.60/hr</b></div>
+    <div class="money" aria-live="polite"><span class="cur" aria-hidden="true">$</span><span id="total"></span></div>
+    <div class="hero-meta" hidden><span id="mHours">1,040 hrs</span> × <b id="mSpread">$11.60/hr</b></div>
   </section>
 
   <section class="card" aria-label="Rates">
-    <div class="card-title">Rates <small>Change any number</small></div>
+    <div class="card-title">Rates</div>
     <div class="fields">
       <label class="field"><span class="lbl">Pay rate</span><span class="entry"><span class="pre">$</span><input id="pay" data-k="pay" type="text" inputmode="decimal" autocomplete="off"><span class="suf">/hr</span></span></label>
       <label class="field"><span class="lbl">Bill rate</span><span class="entry"><span class="pre">$</span><input id="bill" data-k="bill" type="text" inputmode="decimal" autocomplete="off"><span class="suf">/hr</span></span></label>
       <label class="field"><span class="lbl">Burden</span><span class="entry"><input id="burden" data-k="burden" type="text" inputmode="decimal" autocomplete="off"><span class="suf">%</span></span></label>
-      <div class="field ro"><span class="lbl">Burdened cost</span><span class="entry"><span class="pre">$</span><output id="costOut" style="font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--sub)"></output><span class="suf">/hr</span></span></div>
+      <label class="field"><span class="lbl">Hours</span><span class="entry"><input id="hours" data-k="hours" type="text" inputmode="decimal" autocomplete="off"><span class="suf">hrs</span></span></label>
     </div>
   </section>
-
-  <section class="card" aria-label="Contract length">
-    <div class="card-title">Contract length <small>6 months is our standard</small></div>
-    <div class="chips-wrap"><div class="chips" role="group" aria-label="Contract length presets">
-      <button type="button" class="chip" data-h="520"><span class="c1">3 mo</span><span class="c2">520</span></button>
-      <button type="button" class="chip std" data-h="1040"><span class="tag">Standard</span><span class="c1">6 mo</span><span class="c2">1,040</span></button>
-      <button type="button" class="chip" data-h="1560"><span class="c1">9 mo</span><span class="c2">1,560</span></button>
-      <button type="button" class="chip" data-h="2080"><span class="c1">12 mo</span><span class="c2">2,080</span></button>
-      <button type="button" class="chip" id="customChip"><span class="c1">Custom</span><span class="c2">hours</span></button>
-    </div></div>
-    <div class="hours-row"><label class="field"><span class="lbl">Contract hours</span><span class="entry"><input id="hours" data-k="hours" type="text" inputmode="decimal" autocomplete="off"><span class="suf">hrs</span></span></label></div>
-  </section>
-
-  <section class="card" aria-label="Same deal, longer">
-    <div class="card-title">Same deal, longer <small>same rates</small></div>
-    <div class="bars">
-      <div class="bar-row" data-h="520"><span class="bl">3 mo</span><span class="track"><span class="fill"></span></span><span class="bv"></span></div>
-      <div class="bar-row std" data-h="1040"><span class="bl">6 mo</span><span class="track"><span class="fill"></span></span><span class="bv"></span></div>
-      <div class="bar-row" data-h="2080"><span class="bl">12 mo</span><span class="track"><span class="fill"></span></span><span class="bv"></span></div>
-    </div>
-    <p class="compare-note" id="compareNote"></p>
-  </section>
-
-  <section class="card" aria-label="Deal stats">
-    <div class="card-title">The details <small>dashed = editable</small></div>
-    <div class="stats">
-      <label class="tile edit"><span class="lbl">Spread / hr</span><span class="entry"><span class="pre">$</span><input id="spread" data-k="spread" type="text" inputmode="decimal" autocomplete="off" aria-label="Spread per hour. Edit to solve for bill rate."></span></label>
-      <div class="tile"><span class="lbl">Per week</span><span class="val" id="perWeek"></span></div>
-      <div class="tile"><span class="lbl">Per month</span><span class="val" id="perMonth"></span></div>
-      <label class="tile edit"><span class="lbl">Markup</span><span class="entry"><input id="markup" data-k="markup" type="text" inputmode="decimal" autocomplete="off" aria-label="Markup percent. Edit to solve for bill rate."><span class="suf">%</span></span></label>
-      <label class="tile edit"><span class="lbl">Margin</span><span class="entry"><input id="margin" data-k="margin" type="text" inputmode="decimal" autocomplete="off" aria-label="Gross margin percent. Edit to solve for bill rate."><span class="suf">%</span></span></label>
-      <div class="tile"><span class="lbl">Cost / hr</span><span class="val" id="costTile"></span></div>
-    </div>
-  </section>
-
-  <p class="foot">Total deal spread = (bill − pay × (1 + burden)) × hours.<br>Week = 40 hrs · Month = 173.33 hrs.</p>
 </main>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -181,35 +100,17 @@ h1{margin:3px 0 0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weigh
 (function(){
   'use strict';
   var DEFAULTS = {pay:30, bill:50, burden:28, hours:1040};
-  var PRESETS = {520:'3-month', 1040:'6-month', 1560:'9-month', 2080:'12-month'};
-  var PRESET_SHORT = {520:'3 months', 1040:'6 months', 1560:'9 months', 2080:'12 months'};
-  var WEEK = 40, MONTH = 2080/12;
-  var m = {pay:DEFAULTS.pay, bill:DEFAULTS.bill, burden:DEFAULTS.burden, hours:DEFAULTS.hours};
+  var m = {pay:30, bill:50, burden:28, hours:1040};
 
-  /* ---- math (same formulas as v1) ---- */
-  function cost(){ return m.pay * (1 + m.burden/100); }
-  function spread(){ return m.bill - cost(); }
+  // total = (bill − pay × (1 + burden)) × hours
+  function spread(){ return m.bill - m.pay * (1 + m.burden/100); }
   function total(){ return spread() * m.hours; }
-  function markup(){ return m.pay !== 0 ? (m.bill/m.pay - 1) * 100 : NaN; }
-  function margin(){ return m.bill !== 0 ? spread()/m.bill * 100 : NaN; }
-  function solve(k, v){
-    switch(k){
-      case 'pay': case 'bill': case 'burden': case 'hours': m[k] = v; break;
-      case 'markup': m.bill = m.pay * (1 + v/100); break;
-      case 'spread': m.bill = cost() + v; break;
-      case 'total': if (m.hours !== 0) m.bill = cost() + v/m.hours; break;
-      case 'margin': if (v !== 100) m.bill = cost() / (1 - v/100); break;
-    }
-  }
 
-  /* ---- formatting ---- */
   function ok(n){ return typeof n === 'number' && isFinite(n); }
   function fix(n, min, max){ return ok(n) ? n.toLocaleString('en-US',{minimumFractionDigits:min, maximumFractionDigits:max}) : '—'; }
   function money0(n){ if(!ok(n)) return '—'; var r = Math.round(n); return (r < 0 ? '−$' : '$') + Math.abs(r).toLocaleString('en-US'); }
   function money2(n){ if(!ok(n)) return '—'; return (n < 0 ? '−$' : '$') + fix(Math.abs(n),2,2); }
-  function moneyTrim(n){ if(!ok(n)) return '—'; var s = fix(Math.abs(n),0,2); return (n < 0 ? '−$' : '$') + s; }
-  function pct(n, d){ return ok(n) ? fix(n,0,d) : '—'; }
-  function lengthLabel(h){ return PRESETS[h] || (fix(h,0,2) + '-hour'); }
+  function moneyTrim(n){ if(!ok(n)) return '—'; return (n < 0 ? '−$' : '$') + fix(Math.abs(n),0,2); }
 
   var $ = function(id){ return document.getElementById(id); };
   var inputs = {};
@@ -221,54 +122,22 @@ h1{margin:3px 0 0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weigh
       case 'bill': return fix(m.bill,2,2);
       case 'burden': return fix(m.burden,0,2);
       case 'hours': return fix(m.hours,0,2);
-      case 'total': return ok(total()) ? Math.round(total()).toLocaleString('en-US') : '—';
-      case 'spread': return fix(spread(),2,2);
-      case 'markup': return pct(markup(),2);
-      case 'margin': return pct(margin(),2);
     }
   }
 
   function fitTotal(){
-    var el = inputs.total, len = (el.value || '').length;
+    var el = $('total'), len = el.textContent.length;
     var avail = el.parentNode.clientWidth - 30;
-    var size = Math.max(30, Math.min(56, avail / (Math.max(len,4) * 0.62)));
-    el.style.fontSize = size.toFixed(1) + 'px';
+    el.style.fontSize = Math.max(30, Math.min(56, avail / (Math.max(len,4) * 0.62))).toFixed(1) + 'px';
   }
 
   function render(active){
     Object.keys(inputs).forEach(function(k){ if (k !== active) inputs[k].value = fieldText(k); });
-    fitTotal();
-    var c = cost(), s = spread();
-    $('costOut').textContent = fix(c,2,2);
-    $('costTile').textContent = money2(c);
-    $('perWeek').textContent = money0(s * WEEK);
-    $('perMonth').textContent = money0(s * MONTH);
-    $('mLen').textContent = PRESET_SHORT[m.hours] || 'Custom length';
+    var t = total(), r = ok(t) ? Math.round(t) : NaN;
+    $('total').textContent = ok(r) ? (r < 0 ? '−' : '') + Math.abs(r).toLocaleString('en-US') : '—';
     $('mHours').textContent = fix(m.hours,0,2) + ' hrs';
-    $('mSpread').textContent = money2(s) + '/hr';
-
-    // chips
-    var matched = false;
-    Array.prototype.forEach.call(document.querySelectorAll('.chip[data-h]'), function(b){
-      var on = Number(b.dataset.h) === m.hours; if (on) matched = true;
-      b.setAttribute('aria-pressed', on ? 'true' : 'false');
-    });
-    $('customChip').setAttribute('aria-pressed', matched ? 'false' : 'true');
-
-    // comparison bars
-    var rows = document.querySelectorAll('.bar-row');
-    var vals = Array.prototype.map.call(rows, function(r){ return s * Number(r.dataset.h); });
-    var max = Math.max.apply(null, vals.map(function(v){ return ok(v) ? Math.abs(v) : 0; }));
-    Array.prototype.forEach.call(rows, function(r, i){
-      var w = max > 0 && ok(vals[i]) ? Math.abs(vals[i]) / max * 100 : 0;
-      r.querySelector('.fill').style.width = w.toFixed(2) + '%';
-      r.querySelector('.bv').textContent = money0(vals[i]);
-      r.classList.toggle('cur', Number(r.dataset.h) === m.hours);
-    });
-    var gain = s * (2080 - 520);
-    $('compareNote').innerHTML = ok(gain)
-      ? 'Going 12 months instead of 3 adds <b>' + money0(gain) + '</b>. Every extra month adds <b>' + money0(s * MONTH) + '</b>.'
-      : '';
+    $('mSpread').textContent = money2(spread()) + '/hr';
+    fitTotal();
   }
 
   function parse(str){
@@ -283,18 +152,13 @@ h1{margin:3px 0 0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weigh
     el.addEventListener('input', function(){
       var v = parse(el.value);
       if (!ok(v)) return;          // empty / partial entry: wait quietly
-      solve(k, v);
+      m[k] = v;
       render(k);                   // never rewrite the field being typed in
     });
     el.addEventListener('blur', function(){ render(); });
     el.addEventListener('focus', function(){ var v0 = el.value; setTimeout(function(){ if (document.activeElement === el && el.value === v0) { try { el.select(); } catch(e){} } }, 0); });
     el.addEventListener('keydown', function(e){ if (e.key === 'Enter') el.blur(); });
   });
-
-  Array.prototype.forEach.call(document.querySelectorAll('.chip[data-h]'), function(b){
-    b.addEventListener('click', function(){ m.hours = Number(b.dataset.h); render(); });
-  });
-  $('customChip').addEventListener('click', function(){ inputs.hours.focus(); });
 
   $('reset').addEventListener('click', function(){
     if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
@@ -303,8 +167,7 @@ h1{margin:3px 0 0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weigh
   });
 
   function summary(){
-    return lengthLabel(m.hours) + ' deal: ' + moneyTrim(m.pay) + ' pay / ' + moneyTrim(m.bill) + ' bill → ' +
-      money0(total()) + ' total spread (' + money2(spread()) + '/hr, ' + pct(margin(),1) + '% margin)';
+    return moneyTrim(m.pay) + ' pay / ' + moneyTrim(m.bill) + ' bill × ' + fix(m.hours,0,2) + ' hrs → ' + money0(total()) + ' total spread';
   }
   var toastTimer;
   function toast(msg){ var t = $('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 1800); }
@@ -328,7 +191,7 @@ h1{margin:3px 0 0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weigh
   });
 
   window.addEventListener('resize', fitTotal);
-  window.__deal = {m:m, solve:solve, cost:cost, spread:spread, total:total, markup:markup, margin:margin, summary:summary, render:render};
+  window.__deal = {m:m, total:total, summary:summary};
   render();
 })();
 </script>
