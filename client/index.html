@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f4f6f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d1418" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Cost Compare">
+<meta name="application-name" content="Cost Compare">
+<meta name="format-detection" content="telephone=no">
+<meta name="description" content="Weekly cost of a contract employee versus a full-time employee.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e7c66'/%3E%3Crect x='13' y='34' width='10' height='15' rx='2.5' fill='white'/%3E%3Crect x='27' y='24' width='10' height='25' rx='2.5' fill='white'/%3E%3Crect x='41' y='13' width='10' height='36' rx='2.5' fill='white'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Cost Comparison</title>
+<style>
+:root{
+  --bg:#f4f6f8; --card:#ffffff; --ink:#15212b; --sub:#5f6e7b; --faint:#8b98a4;
+  --line:#e2e8ed; --field:#f7f9fa;
+  --accent:#0e7c66; --accent-ink:#ffffff; --accent-ring:rgba(14,124,102,.22);
+  --shadow:0 1px 2px rgba(16,32,44,.04),0 6px 18px rgba(16,32,44,.05);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0d1418; --card:#151f25; --ink:#e8eef2; --sub:#9aa8b3; --faint:#71808c;
+    --line:#24323b; --field:#1b272e;
+    --accent:#3fcf9f; --accent-ink:#06261d; --accent-ring:rgba(63,207,159,.28);
+    --shadow:none;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;touch-action:manipulation}
+input{touch-action:manipulation}
+.app{width:100%;max-width:480px;margin:0 auto;padding:calc(14px + env(safe-area-inset-top)) 16px calc(28px + env(safe-area-inset-bottom))}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
+.actions{display:flex;gap:8px;flex:none}
+.btn{min-height:44px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-size:14px;font-weight:650;display:inline-flex;align-items:center;gap:6px}
+.btn:active{transform:scale(.97)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn svg{width:16px;height:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow);margin-bottom:12px}
+.card-title{margin:0 0 12px;font-size:13px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.06em}
+.hero{padding:18px 18px 16px}
+.hero-label{font-size:15px;font-weight:700;color:var(--ink)}
+.money{display:flex;align-items:baseline;margin-top:8px;color:var(--accent);font-weight:800;font-variant-numeric:tabular-nums;line-height:1.1;white-space:nowrap;overflow:hidden}
+.money .cur{font-size:34px;font-weight:750;margin-right:2px}
+.amt{font-size:56px;letter-spacing:-2px}
+.pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.pair .lbl{font-size:12px;font-weight:650;color:var(--sub);margin-bottom:2px}
+.pair .val{font-size:22px;font-weight:750;letter-spacing:-.3px;font-variant-numeric:tabular-nums;color:var(--ink);white-space:nowrap;overflow:hidden}
+.pair .val span{color:var(--faint);font-weight:650;margin-right:1px}
+.hero-meta{margin-top:8px;font-size:14px;color:var(--sub)}
+.hero-meta b{color:var(--ink);font-weight:650}
+.fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.field{display:block;min-width:0;background:var(--field);border:1px solid var(--line);border-radius:13px;padding:10px 12px;min-height:64px;cursor:text;transition:border-color .15s,box-shadow .15s}
+.field:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-ring)}
+.field .lbl{display:block;font-size:12px;font-weight:650;color:var(--sub);margin-bottom:4px}
+.entry{display:flex;align-items:baseline;gap:3px;min-width:0}
+.entry .pre,.entry .suf{flex:none;color:var(--faint);font-weight:600}
+.entry .pre{font-size:18px}
+.entry .suf{font-size:13px}
+.entry input{flex:1;min-width:0;width:100%;border:0;outline:0;background:transparent;padding:0;font-size:22px;font-weight:700;letter-spacing:-.3px;font-variant-numeric:tabular-nums;line-height:1.2}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;padding:10px 16px;border-radius:999px;transition:opacity .2s,transform .2s;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (max-width:359px){.app{padding-left:10px;padding-right:10px}.card{padding:13px}.btn{padding:0 11px}}
+</style>
+</head>
+<body>
+<main class="app">
+  <header class="top">
+    <h1>Cost Comparison</h1>
+    <div class="actions">
+      <button class="btn" type="button" id="reset" aria-label="Reset to example comparison">Reset</button>
+    </div>
+  </header>
+
+  <section class="card hero" aria-label="Weekly cost">
+    <div class="hero-label">Weekly difference</div>
+    <div class="money" aria-live="polite"><span class="cur" aria-hidden="true">$</span><span class="amt" id="diff"></span></div>
+    <div class="pair">
+      <div><div class="lbl">Contract / week</div><div class="val"><span aria-hidden="true">$</span><b id="contract"></b></div></div>
+      <div><div class="lbl">Full-time / week</div><div class="val"><span aria-hidden="true">$</span><b id="fulltime"></b></div></div>
+    </div>
+  </section>
+
+  <section class="card" aria-label="Inputs">
+    <div class="fields">
+      <label class="field"><span class="lbl">Bill rate</span><span class="entry"><span class="pre">$</span><input id="bill" data-k="bill" type="text" inputmode="decimal" autocomplete="off"><span class="suf">/hr</span></span></label>
+      <label class="field"><span class="lbl">Annual salary</span><span class="entry"><span class="pre">$</span><input id="salary" data-k="salary" type="text" inputmode="decimal" autocomplete="off"><span class="suf">/yr</span></span></label>
+      <label class="field"><span class="lbl">Burden</span><span class="entry"><input id="burden" data-k="burden" type="text" inputmode="decimal" autocomplete="off"><span class="suf">%</span></span></label>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  'use strict';
+  var DEFAULTS = {bill:50, salary:80000, burden:30};
+  var m = {bill:50, salary:80000, burden:30};
+
+  // contract/week = bill × 40; full-time/week = salary / 52 × (1 + burden%)
+  function contract(){ return m.bill * 40; }
+  function fulltime(){ return m.salary * (100 + m.burden) / 5200; }
+  function difference(){ return contract() - fulltime(); }
+
+  function ok(n){ return typeof n === 'number' && isFinite(n); }
+  function fix(n, min, max){ return ok(n) ? n.toLocaleString('en-US',{minimumFractionDigits:min, maximumFractionDigits:max}) : '—'; }
+  function dollars(n){
+    if (!ok(n)) return '—';
+    var r = Math.round(n);
+    return (r < 0 ? '−' : '') + Math.abs(r).toLocaleString('en-US');
+  }
+
+  var $ = function(id){ return document.getElementById(id); };
+  var inputs = {};
+  Array.prototype.forEach.call(document.querySelectorAll('input[data-k]'), function(el){ inputs[el.dataset.k] = el; });
+
+  function fieldText(k){
+    switch(k){
+      case 'bill': return fix(m.bill,2,2);
+      case 'salary': return fix(m.salary,0,2);
+      case 'burden': return fix(m.burden,0,2);
+    }
+  }
+
+  function fitAmounts(){
+    Array.prototype.forEach.call(document.querySelectorAll('.amt'), function(el){
+      var len = el.textContent.length;
+      var avail = el.parentNode.clientWidth - 30;
+      el.style.fontSize = Math.max(30, Math.min(56, avail / (Math.max(len,4) * 0.62))).toFixed(1) + 'px';
+    });
+  }
+
+  function render(active){
+    Object.keys(inputs).forEach(function(k){ if (k !== active) inputs[k].value = fieldText(k); });
+    $('diff').textContent = dollars(difference());
+    $('contract').textContent = dollars(contract());
+    $('fulltime').textContent = dollars(fulltime());
+    fitAmounts();
+  }
+
+  function parse(str){
+    var raw = String(str).replace(/[\s$,%]/g,'').replace(/[−–]/g,'-');
+    if (raw === '' || raw === '-' || raw === '.' || raw === '-.') return NaN;
+    var n = Number(raw);
+    return ok(n) ? n : NaN;
+  }
+
+  Object.keys(inputs).forEach(function(k){
+    var el = inputs[k];
+    el.addEventListener('input', function(){
+      var v = parse(el.value);
+      if (!ok(v)) return;
+      m[k] = v;
+      render(k);
+    });
+    el.addEventListener('blur', function(){ render(); });
+    el.addEventListener('focus', function(){ var v0 = el.value; setTimeout(function(){ if (document.activeElement === el && el.value === v0) { try { el.select(); } catch(e){} } }, 0); });
+    el.addEventListener('keydown', function(e){ if (e.key === 'Enter') el.blur(); });
+  });
+
+  $('reset').addEventListener('click', function(){
+    if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+    m.bill = DEFAULTS.bill; m.salary = DEFAULTS.salary; m.burden = DEFAULTS.burden;
+    render();
+  });
+
+  window.addEventListener('resize', fitAmounts);
+  window.__compare = {m:m, contract:contract, fulltime:fulltime, difference:difference};
+  render();
+})();
+</script>
+<script>
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+</script>
+</body>
+</html>
