@@ -57,8 +57,6 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
 .pair .lbl{font-size:12px;font-weight:650;color:var(--sub);margin-bottom:2px}
 .pair .val{font-size:22px;font-weight:750;letter-spacing:-.3px;font-variant-numeric:tabular-nums;color:var(--ink);white-space:nowrap;overflow:hidden}
 .pair .val span{color:var(--faint);font-weight:650;margin-right:1px}
-.hero-meta{margin-top:8px;font-size:14px;color:var(--sub)}
-.hero-meta b{color:var(--ink);font-weight:650}
 .fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
 .field{display:block;min-width:0;background:var(--field);border:1px solid var(--line);border-radius:13px;padding:10px 12px;min-height:64px;cursor:text;transition:border-color .15s,box-shadow .15s}
 .field:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-ring)}
@@ -85,7 +83,6 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
   <section class="card hero" aria-label="Total deal spread">
     <div class="hero-label">Total deal spread</div>
     <div class="money" aria-live="polite"><span class="cur" aria-hidden="true">$</span><span class="amt" id="total"></span></div>
-    <div class="hero-meta"><span id="mHours">1,040 hrs</span> × <b id="mSpread">$15.20/hr</b></div>
   </section>
 
   <section class="card" aria-label="Rates">
@@ -136,10 +133,6 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
     var r = Math.round(n);
     return (r < 0 ? '−' : '') + Math.abs(r).toLocaleString('en-US');
   }
-  function money2(n){
-    if (!ok(n)) return '—';
-    return (n < 0 ? '−$' : '$') + fix(Math.abs(n),2,2);
-  }
 
   var $ = function(id){ return document.getElementById(id); };
   var inputs = {};
@@ -167,8 +160,6 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
   function render(active){
     Object.keys(inputs).forEach(function(k){ if (k !== active) inputs[k].value = fieldText(k); });
     $('total').textContent = dollars(total());
-    $('mHours').textContent = fix(m.hours,0,2) + ' hrs';
-    $('mSpread').textContent = money2(spread()) + '/hr';
     $('diff').textContent = dollars(difference());
     $('contract').textContent = dollars(contract());
     $('fulltime').textContent = dollars(fulltime());
