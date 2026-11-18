@@ -104,7 +104,7 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
     </div>
     <div class="pair">
       <div><div class="lbl">Direct hire fee</div><div class="val"><span aria-hidden="true">$</span><b id="directHire"></b></div></div>
-      <div><div class="lbl">Total contract cost</div><div class="val"><span aria-hidden="true">$</span><b id="contractTotal"></b></div></div>
+      <div><div class="lbl">Contract fee</div><div class="val"><span aria-hidden="true">$</span><b id="contractFee"></b></div></div>
     </div>
   </section>
 
@@ -131,7 +131,7 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
   function fulltime(){ return m.salary * (100 + m.clientBurden) / 5200; }
   function difference(){ return contract() - fulltime(); }
   function directHire(){ return m.salary * m.hireFee / 100; }
-  function contractTotal(){ return m.bill * m.hours; }
+  function contractFee(){ return (m.bill - m.pay) * m.hours; }
 
   function ok(n){ return typeof n === 'number' && isFinite(n); }
   function fix(n, min, max){ return ok(n) ? n.toLocaleString('en-US',{minimumFractionDigits:min, maximumFractionDigits:max}) : '—'; }
@@ -172,7 +172,7 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
     $('contract').textContent = dollars(contract());
     $('fulltime').textContent = dollars(fulltime());
     $('directHire').textContent = dollars(directHire());
-    $('contractTotal').textContent = dollars(contractTotal());
+    $('contractFee').textContent = dollars(contractFee());
     fitAmounts();
   }
 
@@ -204,7 +204,7 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
   });
 
   window.addEventListener('resize', fitAmounts);
-  window.__calc = {m:m, spread:spread, total:total, contract:contract, fulltime:fulltime, difference:difference, directHire:directHire, contractTotal:contractTotal};
+  window.__calc = {m:m, spread:spread, total:total, contract:contract, fulltime:fulltime, difference:difference, directHire:directHire, contractFee:contractFee};
   render();
 })();
 </script>
