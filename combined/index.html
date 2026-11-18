@@ -97,7 +97,7 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
   </section>
 
   <section class="card hero" aria-label="Weekly cost">
-    <div class="hero-label">Weekly difference</div>
+    <div class="hero-label">Total difference</div>
     <div class="money" aria-live="polite"><span class="cur" aria-hidden="true">$</span><span class="amt" id="diff"></span></div>
     <div class="pair">
       <div><div class="lbl">Contract / week</div><div class="val"><span aria-hidden="true">$</span><b id="contract"></b></div></div>
@@ -142,6 +142,7 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
   function difference(){ return contract() - fulltime(); }
   function directHire(){ return m.salary * m.hireFee / 100; }
   function contractFee(){ return difference() / 40 * m.hours; }
+  function totalDifference(){ return contractFee() - directHire(); }
   function spreadVsHire(){ return total() - directHire(); }
 
   function ok(n){ return typeof n === 'number' && isFinite(n); }
@@ -184,7 +185,7 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
   function render(active){
     Object.keys(inputs).forEach(function(k){ if (k !== active) inputs[k].value = fieldText(k); });
     $('total').textContent = dollars(total());
-    $('diff').textContent = dollars(difference());
+    $('diff').textContent = dollars(totalDifference());
     $('contract').textContent = dollars(contract());
     $('fulltime').textContent = dollars(fulltime());
     $('directHire').textContent = dollars(directHire());
