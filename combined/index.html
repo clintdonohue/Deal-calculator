@@ -115,6 +115,15 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
       <label class="field"><span class="lbl">Direct hire fee %</span><span class="entry"><input id="hireFee" data-k="hireFee" type="text" inputmode="decimal" autocomplete="off"><span class="suf">%</span></span></label>
     </div>
   </section>
+
+  <section class="card hero" aria-label="Spread versus direct hire fee">
+    <div class="hero-label">Difference</div>
+    <div class="money" aria-live="polite"><span class="cur" aria-hidden="true">$</span><span class="amt" id="vsDiff"></span></div>
+    <div class="pair">
+      <div><div class="lbl">Total deal spread</div><div class="val"><span aria-hidden="true">$</span><b id="vsSpread"></b></div></div>
+      <div><div class="lbl">Direct hire fee</div><div class="val"><span aria-hidden="true">$</span><b id="vsHire"></b></div></div>
+    </div>
+  </section>
 </main>
 
 <script>
@@ -132,6 +141,7 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
   function difference(){ return contract() - fulltime(); }
   function directHire(){ return m.salary * m.hireFee / 100; }
   function contractFee(){ return difference() / 40 * m.hours; }
+  function spreadVsHire(){ return total() - directHire(); }
 
   function ok(n){ return typeof n === 'number' && isFinite(n); }
   function fix(n, min, max){ return ok(n) ? n.toLocaleString('en-US',{minimumFractionDigits:min, maximumFractionDigits:max}) : '—'; }
@@ -173,6 +183,9 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
     $('fulltime').textContent = dollars(fulltime());
     $('directHire').textContent = dollars(directHire());
     $('contractFee').textContent = dollars(contractFee());
+    $('vsDiff').textContent = dollars(spreadVsHire());
+    $('vsSpread').textContent = dollars(total());
+    $('vsHire').textContent = dollars(directHire());
     fitAmounts();
   }
 
