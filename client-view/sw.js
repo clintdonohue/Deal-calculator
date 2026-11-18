@@ -1,4 +1,4 @@
-var CACHE = 'contract-vs-hire-v1';
+var CACHE = 'contract-vs-hire-v2';
 var PRECACHE = ['./', './index.html'];
 
 self.addEventListener('install', function (event) {
