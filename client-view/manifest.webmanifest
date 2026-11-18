@@ -1,6 +1,6 @@
 {
-  "name": "Contract vs Hire",
-  "short_name": "Vs Hire",
+  "name": "Contract vs Direct Hire",
+  "short_name": "Contract vs Direct Hire",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
