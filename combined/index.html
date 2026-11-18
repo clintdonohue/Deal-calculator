@@ -143,8 +143,8 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
 <script>
 (function(){
   'use strict';
-  var DEFAULTS = {pay:30, bill:50, dealBurden:16, hours:1040, salary:80000, clientBurden:30, hireFee:20};
-  var m = {pay:30, bill:50, dealBurden:16, hours:1040, salary:80000, clientBurden:30, hireFee:20};
+  var DEFAULTS = {pay:38, bill:66, dealBurden:16, hours:1040, salary:80000, clientBurden:30, hireFee:20};
+  var m = {pay:38, bill:66, dealBurden:16, hours:1040, salary:80000, clientBurden:30, hireFee:20};
 
   // spread/hr = bill − pay × (1 + deal burden); total = spread × hours
   function spread(){ return m.bill - m.pay * (100 + m.dealBurden) / 100; }
