@@ -1,4 +1,4 @@
-var CACHE = 'rate-calculator-v10';
+var CACHE = 'rate-calculator-v11';
 var PRECACHE = ['./', './index.html'];
 
 self.addEventListener('install', function (event) {

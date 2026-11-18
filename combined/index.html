@@ -53,20 +53,7 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
 .money{display:flex;align-items:baseline;margin-top:8px;color:var(--accent);font-weight:800;font-variant-numeric:tabular-nums;line-height:1.1;white-space:nowrap;overflow:hidden}
 .money .cur{font-size:34px;font-weight:750;margin-right:2px}
 .amt{font-size:56px;letter-spacing:-2px}
-.lead{padding:22px 18px 18px}
-.lead .money .cur{font-size:40px}
-.lead .amt{font-size:64px}
-.lead .pair{margin-top:18px;padding-top:14px}
-.lead .pair .val{font-size:28px;font-weight:800;color:var(--accent);letter-spacing:-.6px}
-.lead .pair .val span{color:var(--accent);font-weight:750}
-.quiet{padding:12px 14px 12px}
-.quiet .hero-label{font-size:13px;font-weight:650;color:var(--sub)}
-.quiet .money{margin-top:4px}
-.quiet .money .cur{font-size:22px;font-weight:700}
-.quiet .sum{font-size:34px;font-weight:800;letter-spacing:-1px}
-.money .pct{font-size:15px;font-weight:650;white-space:nowrap}
-.quiet .pair{margin-top:10px;padding-top:8px;gap:8px}
-.quiet .pair .val{font-size:17px}
+.money .pct{font-size:16px;font-weight:650;white-space:nowrap}
 .pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
 .pair .lbl{font-size:12px;font-weight:650;color:var(--sub);margin-bottom:2px}
 .pair .val{font-size:22px;font-weight:750;letter-spacing:-.3px;font-variant-numeric:tabular-nums;color:var(--ink);white-space:nowrap;overflow:hidden}
@@ -94,6 +81,11 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
     </div>
   </header>
 
+  <section class="card hero" aria-label="Total deal spread">
+    <div class="hero-label">Total deal spread</div>
+    <div class="money" aria-live="polite"><span class="cur" aria-hidden="true">$</span><span class="amt" id="total"></span></div>
+  </section>
+
   <section class="card" aria-label="Rates">
     <div class="card-title">Rates</div>
     <div class="fields">
@@ -104,7 +96,20 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
     </div>
   </section>
 
-  <section class="card" aria-label="Hire inputs">
+  <section class="card hero" aria-label="Weekly cost">
+    <div class="hero-label">Weekly difference</div>
+    <div class="money" aria-live="polite"><span class="cur" aria-hidden="true">$</span><span class="amt" id="diff"></span></div>
+    <div class="pair">
+      <div><div class="lbl">Contract / week</div><div class="val"><span aria-hidden="true">$</span><b id="contract"></b></div></div>
+      <div><div class="lbl">Full-time / week</div><div class="val"><span aria-hidden="true">$</span><b id="fulltime"></b></div></div>
+    </div>
+    <div class="pair">
+      <div><div class="lbl">Direct hire fee</div><div class="val"><span aria-hidden="true">$</span><b id="directHire"></b></div></div>
+      <div><div class="lbl">Contract fee</div><div class="val"><span aria-hidden="true">$</span><b id="contractFee"></b></div></div>
+    </div>
+  </section>
+
+  <section class="card" aria-label="Weekly inputs">
     <div class="fields">
       <label class="field"><span class="lbl">Annual salary</span><span class="entry"><span class="pre">$</span><input id="salary" data-k="salary" type="text" inputmode="decimal" autocomplete="off"><span class="suf">/yr</span></span></label>
       <label class="field"><span class="lbl">Client burden</span><span class="entry"><input id="clientBurden" data-k="clientBurden" type="text" inputmode="decimal" autocomplete="off"><span class="suf">%</span></span></label>
@@ -112,30 +117,12 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
     </div>
   </section>
 
-  <section class="card hero lead" aria-label="Total deal spread">
-    <div class="hero-label">Total deal spread</div>
-    <div class="money" aria-live="polite"><span class="cur" aria-hidden="true">$</span><span class="amt" id="total"></span></div>
-    <div class="pair">
-      <div><div class="lbl">Contract fee</div><div class="val"><span aria-hidden="true">$</span><b id="contractFee"></b></div></div>
-      <div><div class="lbl">Contract / week</div><div class="val"><span aria-hidden="true">$</span><b id="leadContract"></b></div></div>
-    </div>
-  </section>
-
-  <section class="card hero quiet" aria-label="Weekly cost">
-    <div class="hero-label">Weekly difference</div>
-    <div class="money" aria-live="polite"><span class="cur" id="diffCur" aria-hidden="true">$</span><span class="sum" id="diff"></span><span class="pct" id="diffPct"></span></div>
-    <div class="pair">
-      <div><div class="lbl">Contract / week</div><div class="val"><span aria-hidden="true">$</span><b id="contract"></b></div></div>
-      <div><div class="lbl">Full-time / week</div><div class="val"><span aria-hidden="true">$</span><b id="fulltime"></b></div></div>
-    </div>
-  </section>
-
-  <section class="card hero quiet" aria-label="Spread versus direct hire fee">
+  <section class="card hero" aria-label="Spread versus direct hire fee">
     <div class="hero-label">Difference</div>
-    <div class="money" aria-live="polite"><span class="cur" id="vsCur" aria-hidden="true">$</span><span class="sum" id="vsDiff"></span><span class="pct" id="vsPct"></span></div>
+    <div class="money" aria-live="polite"><span class="cur" aria-hidden="true">$</span><span class="amt" id="vsDiff"></span><span class="pct" id="vsPct"></span></div>
     <div class="pair">
       <div><div class="lbl">Total deal spread</div><div class="val"><span aria-hidden="true">$</span><b id="vsSpread"></b></div></div>
-      <div><div class="lbl">Direct hire fee</div><div class="val"><span aria-hidden="true">$</span><b id="directHire"></b></div></div>
+      <div><div class="lbl">Direct hire fee</div><div class="val"><span aria-hidden="true">$</span><b id="vsHire"></b></div></div>
     </div>
   </section>
 </main>
@@ -164,14 +151,10 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
     var r = Math.round(n);
     return (r < 0 ? '−' : '') + Math.abs(r).toLocaleString('en-US');
   }
-  function paintDiff(curId, numId, pctId, n, base){
-    if (!ok(n)) { $(curId).textContent = ''; $(numId).textContent = '—'; $(pctId).textContent = ''; return; }
-    var r = Math.round(n);
-    $(curId).textContent = r < 0 ? '−$' : '$';
-    $(numId).textContent = Math.abs(r).toLocaleString('en-US');
-    if (!ok(base) || base === 0) { $(pctId).textContent = ''; return; }
-    var p = Math.round(n / base * 100);
-    $(pctId).textContent = ' (' + (p < 0 ? '−' : '') + Math.abs(p) + '%)';
+  function pctOf(diff, base){
+    if (!ok(diff) || !ok(base) || base === 0) return '';
+    var p = Math.round(diff / base * 100);
+    return ' (' + (p < 0 ? '−' : '') + Math.abs(p) + '%)';
   }
 
   var $ = function(id){ return document.getElementById(id); };
@@ -191,22 +174,25 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
   }
 
   function fitAmounts(){
-    var el = $('total'), len = el.textContent.length;
-    var avail = el.parentNode.clientWidth - 40;
-    el.style.fontSize = Math.max(36, Math.min(64, avail / (Math.max(len,4) * 0.62))).toFixed(1) + 'px';
+    Array.prototype.forEach.call(document.querySelectorAll('.amt'), function(el){
+      var len = el.textContent.length;
+      var avail = el.parentNode.clientWidth - 30;
+      el.style.fontSize = Math.max(30, Math.min(56, avail / (Math.max(len,4) * 0.62))).toFixed(1) + 'px';
+    });
   }
 
   function render(active){
     Object.keys(inputs).forEach(function(k){ if (k !== active) inputs[k].value = fieldText(k); });
     $('total').textContent = dollars(total());
-    paintDiff('diffCur', 'diff', 'diffPct', difference(), fulltime());
+    $('diff').textContent = dollars(difference());
     $('contract').textContent = dollars(contract());
-    $('leadContract').textContent = dollars(contract());
     $('fulltime').textContent = dollars(fulltime());
     $('directHire').textContent = dollars(directHire());
     $('contractFee').textContent = dollars(contractFee());
-    paintDiff('vsCur', 'vsDiff', 'vsPct', spreadVsHire(), directHire());
+    $('vsDiff').textContent = dollars(spreadVsHire());
+    $('vsPct').textContent = pctOf(spreadVsHire(), directHire());
     $('vsSpread').textContent = dollars(total());
+    $('vsHire').textContent = dollars(directHire());
     fitAmounts();
   }
 
