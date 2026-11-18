@@ -131,7 +131,7 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
   function fulltime(){ return m.salary * (100 + m.clientBurden) / 5200; }
   function difference(){ return contract() - fulltime(); }
   function directHire(){ return m.salary * m.hireFee / 100; }
-  function contractFee(){ return (m.bill - m.pay) * m.hours; }
+  function contractFee(){ return difference() / 40 * m.hours; }
 
   function ok(n){ return typeof n === 'number' && isFinite(n); }
   function fix(n, min, max){ return ok(n) ? n.toLocaleString('en-US',{minimumFractionDigits:min, maximumFractionDigits:max}) : '—'; }
