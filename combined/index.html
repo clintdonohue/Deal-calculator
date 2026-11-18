@@ -102,12 +102,17 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
       <div><div class="lbl">Contract / week</div><div class="val"><span aria-hidden="true">$</span><b id="contract"></b></div></div>
       <div><div class="lbl">Full-time / week</div><div class="val"><span aria-hidden="true">$</span><b id="fulltime"></b></div></div>
     </div>
+    <div class="pair">
+      <div><div class="lbl">Direct hire fee</div><div class="val"><span aria-hidden="true">$</span><b id="directHire"></b></div></div>
+      <div><div class="lbl">Total contract cost</div><div class="val"><span aria-hidden="true">$</span><b id="contractTotal"></b></div></div>
+    </div>
   </section>
 
   <section class="card" aria-label="Weekly inputs">
     <div class="fields">
       <label class="field"><span class="lbl">Annual salary</span><span class="entry"><span class="pre">$</span><input id="salary" data-k="salary" type="text" inputmode="decimal" autocomplete="off"><span class="suf">/yr</span></span></label>
       <label class="field"><span class="lbl">Burden</span><span class="entry"><input id="clientBurden" data-k="clientBurden" type="text" inputmode="decimal" autocomplete="off"><span class="suf">%</span></span></label>
+      <label class="field"><span class="lbl">Direct hire fee %</span><span class="entry"><input id="hireFee" data-k="hireFee" type="text" inputmode="decimal" autocomplete="off"><span class="suf">%</span></span></label>
     </div>
   </section>
 </main>
@@ -115,8 +120,8 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
 <script>
 (function(){
   'use strict';
-  var DEFAULTS = {pay:30, bill:50, dealBurden:16, hours:1040, salary:80000, clientBurden:30};
-  var m = {pay:30, bill:50, dealBurden:16, hours:1040, salary:80000, clientBurden:30};
+  var DEFAULTS = {pay:30, bill:50, dealBurden:16, hours:1040, salary:80000, clientBurden:30, hireFee:20};
+  var m = {pay:30, bill:50, dealBurden:16, hours:1040, salary:80000, clientBurden:30, hireFee:20};
 
   // spread/hr = bill − pay × (1 + deal burden); total = spread × hours
   function spread(){ return m.bill - m.pay * (100 + m.dealBurden) / 100; }
@@ -125,6 +130,8 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
   function contract(){ return m.bill * 40; }
   function fulltime(){ return m.salary * (100 + m.clientBurden) / 5200; }
   function difference(){ return contract() - fulltime(); }
+  function directHire(){ return m.salary * m.hireFee / 100; }
+  function contractTotal(){ return m.bill * m.hours; }
 
   function ok(n){ return typeof n === 'number' && isFinite(n); }
   function fix(n, min, max){ return ok(n) ? n.toLocaleString('en-US',{minimumFractionDigits:min, maximumFractionDigits:max}) : '—'; }
@@ -146,6 +153,7 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
       case 'hours': return fix(m.hours,0,2);
       case 'salary': return fix(m.salary,0,2);
       case 'clientBurden': return fix(m.clientBurden,0,2);
+      case 'hireFee': return fix(m.hireFee,0,2);
     }
   }
 
@@ -163,6 +171,8 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
     $('diff').textContent = dollars(difference());
     $('contract').textContent = dollars(contract());
     $('fulltime').textContent = dollars(fulltime());
+    $('directHire').textContent = dollars(directHire());
+    $('contractTotal').textContent = dollars(contractTotal());
     fitAmounts();
   }
 
@@ -189,12 +199,12 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
   $('reset').addEventListener('click', function(){
     if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
     m.pay = DEFAULTS.pay; m.bill = DEFAULTS.bill; m.dealBurden = DEFAULTS.dealBurden; m.hours = DEFAULTS.hours;
-    m.salary = DEFAULTS.salary; m.clientBurden = DEFAULTS.clientBurden;
+    m.salary = DEFAULTS.salary; m.clientBurden = DEFAULTS.clientBurden; m.hireFee = DEFAULTS.hireFee;
     render();
   });
 
   window.addEventListener('resize', fitAmounts);
-  window.__calc = {m:m, spread:spread, total:total, contract:contract, fulltime:fulltime, difference:difference};
+  window.__calc = {m:m, spread:spread, total:total, contract:contract, fulltime:fulltime, difference:difference, directHire:directHire, contractTotal:contractTotal};
   render();
 })();
 </script>
