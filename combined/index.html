@@ -64,6 +64,7 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
 .quiet .money{margin-top:4px}
 .quiet .money .cur{font-size:22px;font-weight:700}
 .quiet .sum{font-size:34px;font-weight:800;letter-spacing:-1px}
+.money .pct{font-size:15px;font-weight:650;white-space:nowrap}
 .quiet .pair{margin-top:10px;padding-top:8px;gap:8px}
 .quiet .pair .val{font-size:17px}
 .pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
@@ -122,7 +123,7 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
 
   <section class="card hero quiet" aria-label="Weekly cost">
     <div class="hero-label">Weekly difference</div>
-    <div class="money" aria-live="polite"><span class="cur" aria-hidden="true">$</span><span class="sum" id="diff"></span></div>
+    <div class="money" aria-live="polite"><span class="cur" id="diffCur" aria-hidden="true">$</span><span class="sum" id="diff"></span><span class="pct" id="diffPct"></span></div>
     <div class="pair">
       <div><div class="lbl">Contract / week</div><div class="val"><span aria-hidden="true">$</span><b id="contract"></b></div></div>
       <div><div class="lbl">Full-time / week</div><div class="val"><span aria-hidden="true">$</span><b id="fulltime"></b></div></div>
@@ -131,7 +132,7 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
 
   <section class="card hero quiet" aria-label="Spread versus direct hire fee">
     <div class="hero-label">Difference</div>
-    <div class="money" aria-live="polite"><span class="cur" aria-hidden="true">$</span><span class="sum" id="vsDiff"></span></div>
+    <div class="money" aria-live="polite"><span class="cur" id="vsCur" aria-hidden="true">$</span><span class="sum" id="vsDiff"></span><span class="pct" id="vsPct"></span></div>
     <div class="pair">
       <div><div class="lbl">Total deal spread</div><div class="val"><span aria-hidden="true">$</span><b id="vsSpread"></b></div></div>
       <div><div class="lbl">Direct hire fee</div><div class="val"><span aria-hidden="true">$</span><b id="directHire"></b></div></div>
@@ -163,6 +164,15 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
     var r = Math.round(n);
     return (r < 0 ? '−' : '') + Math.abs(r).toLocaleString('en-US');
   }
+  function paintDiff(curId, numId, pctId, n, base){
+    if (!ok(n)) { $(curId).textContent = ''; $(numId).textContent = '—'; $(pctId).textContent = ''; return; }
+    var r = Math.round(n);
+    $(curId).textContent = r < 0 ? '−$' : '$';
+    $(numId).textContent = Math.abs(r).toLocaleString('en-US');
+    if (!ok(base) || base === 0) { $(pctId).textContent = ''; return; }
+    var p = Math.round(n / base * 100);
+    $(pctId).textContent = ' (' + (p < 0 ? '−' : '') + Math.abs(p) + '%)';
+  }
 
   var $ = function(id){ return document.getElementById(id); };
   var inputs = {};
@@ -189,13 +199,13 @@ h1{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.4px;font-weight:750}
   function render(active){
     Object.keys(inputs).forEach(function(k){ if (k !== active) inputs[k].value = fieldText(k); });
     $('total').textContent = dollars(total());
-    $('diff').textContent = dollars(difference());
+    paintDiff('diffCur', 'diff', 'diffPct', difference(), fulltime());
     $('contract').textContent = dollars(contract());
     $('leadContract').textContent = dollars(contract());
     $('fulltime').textContent = dollars(fulltime());
     $('directHire').textContent = dollars(directHire());
     $('contractFee').textContent = dollars(contractFee());
-    $('vsDiff').textContent = dollars(spreadVsHire());
+    paintDiff('vsCur', 'vsDiff', 'vsPct', spreadVsHire(), directHire());
     $('vsSpread').textContent = dollars(total());
     fitAmounts();
   }
